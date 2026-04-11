@@ -93,26 +93,26 @@ export default function ProductPage() {
           <div className="mt-6 flex gap-4">
 
             <button
-  onClick={() => {
-    for (let i = 0; i < quantity; i++) {
-      addToCart(product);
-    }
-  }}
-  className="border border-black px-5 py-2 rounded hover:bg-black hover:text-white transition"
->
-  Add to Cart
-</button>
+              onClick={() => {
+                for (let i = 0; i < quantity; i++) {
+                  addToCart(product);
+                }
+              }}
+              className="border border-black px-5 py-2 rounded hover:bg-black hover:text-white transition"
+            >
+              Add to Cart
+            </button>
 
             <button
-              onClick={() =>
-                window.open(
-                  `https://wa.me/91XXXXXXXXXX?text=I want to buy ${product.name} (Qty: ${quantity})`,
-                  "_blank"
-                )
-              }
-              className="bg-black text-white px-5 py-2 rounded hover:bg-gray-800 transition"
-            >
-              Buy Now
+                onClick={() => {
+                  for (let i = 0; i < quantity; i++) {
+                    addToCart(product);
+                  }
+                  navigate("/cart");
+                }}
+                className="bg-black text-white px-5 py-2 rounded hover:bg-gray-800 transition"
+              >
+                Buy Now
             </button>
 
           </div>

@@ -1,18 +1,26 @@
 import { useCart } from "../context/CartContext";
-import { FiShoppingBag } from "react-icons/fi";
+import { FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navbar() {
   const { cart } = useCart();
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // 👉 total items count (not just array length)
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b">
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(true)}>
+            <FiMenu size={22} />
+          </button>
+        </div>
+
         {/* Logo */}
         <h1
           onClick={() => navigate("/")}
@@ -21,7 +29,7 @@ export default function Navbar() {
           SK Jewelry
         </h1>
 
-        {/* Nav Links */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8 text-sm font-medium">
           <p onClick={() => navigate("/")} className="cursor-pointer hover:text-gray-500 transition">Home</p>
           <p className="cursor-pointer hover:text-gray-500 transition">Shop</p>
@@ -41,11 +49,39 @@ export default function Navbar() {
               {totalItems}
             </span>
           )}
-
-          <span className="absolute inset-0 rounded-full scale-0 group-hover:scale-110 transition bg-gray-100 -z-10"></span>
         </div>
 
       </div>
+
+      {/* 🔥 Mobile Sidebar */}
+      {menuOpen && (
+        <>
+          {/* Overlay */}
+          <div
+            onClick={() => setMenuOpen(false)}
+            className="fixed inset-0 bg-black/40 z-40"
+          />
+
+          {/* Sidebar */}
+          <div className="fixed top-0 left-0 w-[250px] h-full bg-white z-50 p-6 flex flex-col gap-6 transform transition-transform">
+
+            {/* Close Button */}
+            <div className="flex justify-end">
+              <button onClick={() => setMenuOpen(false)}>
+                <FiX size={22} />
+              </button>
+            </div>
+
+            {/* Links */}
+            <p onClick={() => {navigate("/"); setMenuOpen(false);}} className="cursor-pointer">Home</p>
+            <p className="cursor-pointer">Shop</p>
+            <p onClick={() => {navigate("/new-arrivals"); setMenuOpen(false);}} className="cursor-pointer">New Arrivals</p>
+            <p className="cursor-pointer">Contact</p>
+
+          </div>
+        </>
+      )}
+
     </header>
   );
 }

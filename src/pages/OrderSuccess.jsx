@@ -1,10 +1,10 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { FiAlertCircle } from "react-icons/fi";
 
 export default function OrderSuccess() {
   const { state } = useLocation();
-  const navigate = useNavigate();
 
-  const { cart = [], total = 0 } = state || {};
+  const { cart = [], total = 0, paymentId = "" } = state || {};
 
   // Create WhatsApp message
   let message = "Hello, I placed an order:\n\n";
@@ -15,37 +15,36 @@ export default function OrderSuccess() {
     message += `Price: ₹${item.price}\n\n`;
   });
 
-  message += `Total: ₹${total}`;
+  message += `Total: ₹${total}\n`;
+  message += `Payment ID: ${paymentId}`;
 
-  const whatsappURL = `https://wa.me/91XXXXXXXXXX?text=${encodeURIComponent(message)}`;
+  const whatsappURL = `https://wa.me/919004188574?text=${encodeURIComponent(message)}`;
 
   return (
-    <div className="px-6 py-20 text-center">
+    <div className="px-6 py-20 text-center max-w-xl mx-auto">
 
       <h1 className="text-2xl font-semibold mb-4">
         Order Placed Successfully 🎉
       </h1>
 
-      <p className="text-gray-600 mb-6">
+      <p className="text-gray-600 mb-8">
         Click below to send your order details to confirm.
       </p>
 
-      <div className="flex flex-col items-center gap-4">
+      {/* WhatsApp Button */}
+      <button
+        onClick={() => window.open(whatsappURL, "_blank")}
+        className="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 cursor-pointer transition"
+      >
+        Send Order Info via WhatsApp
+      </button>
 
-        <button
-          onClick={() => window.open(whatsappURL, "_blank")}
-          className="bg-black text-white px-6 py-3 rounded"
-        >
-          Send Order Info via WhatsApp
-        </button>
-
-        <button
-          onClick={() => navigate("/")}
-          className="text-sm underline"
-        >
-          Continue Shopping
-        </button>
-
+      {/* ✅ Important Note BELOW button */}
+      <div className="mt-6 flex items-center justify-center gap-2 text-sm text-red-500">
+        <FiAlertCircle size={18} />
+        <p>
+          Sending order details via WhatsApp is required to confirm your order.
+        </p>
       </div>
 
     </div>
