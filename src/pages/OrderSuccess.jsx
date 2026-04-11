@@ -4,7 +4,7 @@ import { FiAlertCircle } from "react-icons/fi";
 export default function OrderSuccess() {
   const { state } = useLocation();
 
-  const { cart = [], total = 0, paymentId = "" } = state || {};
+  const { cart = [], total = 0, paymentId = "",  customer = {}  } = state || {};
 
   // Create WhatsApp message
   let message = "Hello, I placed an order:\n\n";
@@ -14,6 +14,11 @@ export default function OrderSuccess() {
     message += `Qty: ${item.quantity}\n`;
     message += `Price: ₹${item.price}\n\n`;
   });
+
+  // Customer info
+  message += `Name: ${customer.name}\n`;
+  message += `Phone: ${customer.phone}\n`;
+  message += `Address: ${customer.address}\n\n`;
 
   message += `Total: ₹${total}\n`;
   message += `Payment ID: ${paymentId}`;

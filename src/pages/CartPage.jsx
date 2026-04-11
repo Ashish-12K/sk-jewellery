@@ -18,53 +18,53 @@ export default function CartPage() {
   const finalTotal = total + deliveryCharge;
 
   // ✅ Razorpay handler
-  const handlePayment = () => {
-    if (!window.Razorpay) {
-      alert("Razorpay SDK not loaded");
-      return;
-    }
+  // const handlePayment = () => {
+  //   if (!window.Razorpay) {
+  //     alert("Razorpay SDK not loaded");
+  //     return;
+  //   }
 
-    const options = {
-      key: "rzp_test_SbORRPRK2LfG2O",
-      amount: finalTotal * 100,
-      currency: "INR",
+  //   const options = {
+  //     key: "rzp_test_SbORRPRK2LfG2O",
+  //     amount: finalTotal * 100,
+  //     currency: "INR",
 
-      name: "SK Jewelry",
-      description: "Order Payment",
+  //     name: "SK Jewelry",
+  //     description: "Order Payment",
 
-      handler: function (response) {
-        const paymentId = response.razorpay_payment_id;
+  //     handler: function (response) {
+  //       const paymentId = response.razorpay_payment_id;
 
-        // ✅ Save current cart before clearing
-        const currentCart = [...cart];
+  //       // ✅ Save current cart before clearing
+  //       const currentCart = [...cart];
 
-        // ✅ Clear cart
-        clearCart();
+  //       // ✅ Clear cart
+  //       clearCart();
 
-        // ✅ Redirect
-        navigate("/order-success", {
-          state: {
-            cart: currentCart,
-            total: finalTotal,
-            paymentId,
-          },
-        });
-      },
+  //       // ✅ Redirect
+  //       navigate("/order-success", {
+  //         state: {
+  //           cart: currentCart,
+  //           total: finalTotal,
+  //           paymentId,
+  //         },
+  //       });
+  //     },
 
-      modal: {
-        ondismiss: function () {
-          console.log("Payment popup closed");
-        },
-      },
+  //     modal: {
+  //       ondismiss: function () {
+  //         console.log("Payment popup closed");
+  //       },
+  //     },
 
-      theme: {
-        color: "#000000",
-      },
-    };
+  //     theme: {
+  //       color: "#000000",
+  //     },
+  //   };
 
-    const rzp = new window.Razorpay(options);
-    rzp.open();
-  };
+  //   const rzp = new window.Razorpay(options);
+  //   rzp.open();
+  // };
 
   if (cart.length === 0) {
     return <p className="p-6">Your cart is empty</p>;
@@ -150,7 +150,7 @@ export default function CartPage() {
 
         {/* Checkout */}
         <button
-          onClick={handlePayment}
+          onClick={() => navigate("/checkout")}
           className="mt-4 w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition"
         >
           Checkout
