@@ -1,11 +1,12 @@
 import { useCart } from "../context/CartContext";
 import { FiShoppingBag, FiMenu, FiX } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 export default function Navbar() {
   const { cart } = useCart();
   const navigate = useNavigate();
+  const location = useLocation(); // ✅ added
   const [menuOpen, setMenuOpen] = useState(false);
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -39,7 +40,13 @@ export default function Navbar() {
 
         {/* Cart */}
         <div
-          onClick={() => navigate("/cart")}
+          onClick={() => {
+            if (location.pathname === "/cart") {
+              navigate(-1); // ✅ go back if already on cart
+            } else {
+              navigate("/cart");
+            }
+          }}
           className="relative cursor-pointer group"
         >
           <FiShoppingBag size={20} />
@@ -63,7 +70,7 @@ export default function Navbar() {
           />
 
           {/* Sidebar */}
-          <div className="fixed top-0 left-0 w-[250px] h-full bg-white z-50 p-6 flex flex-col gap-6 transform transition-transform">
+          <div className="fixed top-0 left-0 w-[250px] h-full bg-white z-50 p-6 flex flex-col gap-6">
 
             {/* Close Button */}
             <div className="flex justify-end">
