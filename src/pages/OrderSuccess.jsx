@@ -1,8 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { FiAlertCircle } from "react-icons/fi";
+import { useRef } from "react";
+import * as htmlToImage from "html-to-image";
 
 export default function OrderSuccess() {
   const { state } = useLocation();
+  const orderRef = useRef();
 
   const {
     cart = [],
@@ -11,48 +14,124 @@ export default function OrderSuccess() {
     customer = {},
   } = state || {};
 
-  // Create WhatsApp message
+  // WhatsApp message
   let message = "Hello, I placed an order:\n\n";
 
-  // Products
   cart.forEach((item) => {
-    message += `Product: ${item.name}\n`;
-    message += `Qty: ${item.quantity}\n`;
-    message += `Price: ₹${item.price}\n\n`;
+    message += `• ${item.name} (Qty: ${item.quantity}) - ₹${item.price}\n`;
   });
 
-  // ✅ Updated Customer Info
-  message += `Name: ${customer.name}\n`;
-  message += `Phone: ${customer.phone}\n`;
-
-  message += `Address: ${customer.house}, ${customer.street}\n`;
-  message += `${customer.city}, ${customer.state}, ${customer.country} - ${customer.pincode}\n\n`;
-
-  message += `Total: ₹${total}\n`;
-  message += `Payment ID: ${paymentId}`;
+  message += `\nName: ${customer.name}`;
+  message += `\nPhone: ${customer.phone}`;
+  message += `\nAddress: ${customer.house}, ${customer.street}`;
+  message += `\n${customer.city}, ${customer.state}, ${customer.country} - ${customer.pincode}`;
+  message += `\n\nTotal: ₹${total}`;
+  message += `\nPayment ID: ${paymentId}`;
 
   const whatsappURL = `https://wa.me/919004188574?text=${encodeURIComponent(message)}`;
 
+  // 📸 Download image
+  const downloadImage = async () => {
+    if (!orderRef.current) return;
+
+    try {
+      const dataUrl = await htmlToImage.toPng(orderRef.current);
+
+      const link = document.createElement("a");
+      link.download = "order-summary.png";
+      link.href = dataUrl;
+      link.click();
+    } catch (err) {
+      console.error("Error generating image", err);
+    }
+  };
+
   return (
-    <div className="px-6 py-20 text-center max-w-xl mx-auto">
+    <div className="px-6 py-20 max-w-2xl mx-auto text-center">
 
       <h1 className="text-2xl font-semibold mb-4">
         Order Placed Successfully 🎉
       </h1>
 
-      <p className="text-gray-600 mb-8">
-        Click below to send your order details to confirm.
+      <p className="text-gray-600 mb-6">
+        Confirm your order using WhatsApp.
       </p>
 
-      {/* WhatsApp Button */}
-      <button
-        onClick={() => window.open(whatsappURL, "_blank")}
-        className="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 cursor-pointer transition"
+      {/* 📦 ORDER SUMMARY (Image Area) */}
+      <div
+        ref={orderRef}
+        className="border rounded-lg p-6 text-left shadow-sm bg-white"
       >
-        Send Order Info via WhatsApp
-      </button>
 
-      {/* Important Note */}
+        <h2 className="font-semibold mb-4 text-lg">
+          Order Summary
+        </h2>
+
+        {/* Products */}
+        <div className="space-y-2 mb-4">
+          {cart.map((item) => (
+            <div key={item.id} className="flex justify-between text-sm">
+              <span>
+                {item.name} × {item.quantity}
+              </span>
+              <span>₹{item.price}</span>
+            </div>
+          ))}
+        </div>
+
+        <hr className="my-4" />
+
+        {/* Customer Info */}
+        <div className="text-sm space-y-1">
+          <p><strong>Name:</strong> {customer.name}</p>
+          <p><strong>Phone:</strong> {customer.phone}</p>
+          <p>
+            <strong>Address:</strong> {customer.house}, {customer.street}, {customer.city}, {customer.state}, {customer.country} - {customer.pincode}
+          </p>
+        </div>
+
+        <hr className="my-4" />
+
+        {/* Payment */}
+        <div className="text-sm space-y-1">
+          <p><strong>Total:</strong> ₹{total}</p>
+          <p><strong>Payment ID:</strong> {paymentId}</p>
+        </div>
+
+        <hr className="my-4" />
+
+        {/* 🔥 WhatsApp info inside image */}
+        <div className="text-sm text-center bg-gray-50 p-3 rounded">
+          <p className="font-normal">
+            Send this image to confirm your order
+          </p>
+          <p className="text-gray-800 font-semibold">
+            WhatsApp: +91 90041 88574
+          </p>
+        </div>
+
+      </div>
+
+      {/* Buttons */}
+      <div className="mt-6 flex flex-col gap-3">
+
+        <button
+          onClick={() => window.open(whatsappURL, "_blank")}
+          className="bg-black text-white px-6 py-3 rounded hover:bg-gray-800 transition"
+        >
+          Send via WhatsApp
+        </button>
+
+        <button
+          onClick={downloadImage}
+          className="border border-black px-6 py-3 rounded hover:bg-black hover:text-white transition"
+        >
+          Download Order Image
+        </button>
+
+      </div>
+
+      {/* ⚠️ Note */}
       <div className="mt-6 flex items-center justify-center gap-2 text-sm text-red-500">
         <FiAlertCircle size={18} />
         <p>

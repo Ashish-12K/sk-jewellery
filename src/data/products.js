@@ -20,7 +20,7 @@ const products = [
   {
     id: 3,
     name: "Flower Earring",
-    price: 299,
+    price: 99,
     image: "/images/Earring/e2.jpeg",
     category: "earring",
     isNew: true,
@@ -29,7 +29,7 @@ const products = [
   {
     id: 4,
     name: "Necklace",
-    price: 299,
+    price: 199,
     image: "/images/Necklace/n2.jpeg",
     category: "necklace",
     isNew: true,
@@ -38,7 +38,7 @@ const products = [
   {
     id: 5,
     name: "Gold Necklace",
-    price: 299,
+    price: 199,
     image: "/images/Necklace/n4.jpeg",
     category: "necklace",
     isNew: true,
@@ -47,7 +47,7 @@ const products = [
   {
     id: 6,
     name: "Gold Necklace",
-    price: 299,
+    price: 249,
     image: "/images/Necklace/n5.jpeg",
     category: "necklace",
     isNew: true,
@@ -65,7 +65,7 @@ const products = [
   {
     id: 8,
     name: "Flower Hair Band",
-    price: 299,
+    price: 99,
     image: "/images/Hair/flowerband1.jpeg",
     category: "necklace",
     isNew: true,
@@ -94,6 +94,15 @@ const products = [
     name: "Bracelet",
     price: 249,
     image: "/images/Bracelets/b1.jpeg",
+    category: "bracelets",
+    isNew: false,
+    isBestSeller: true
+  },
+  {
+    id: 12,
+    name: "Bouquet",
+    price: 249,
+    image: "/images/Bouquet/bouquet1.jpg",
     category: "bracelets",
     isNew: false,
     isBestSeller: true

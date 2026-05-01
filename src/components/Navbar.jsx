@@ -35,7 +35,12 @@ export default function Navbar() {
           <p onClick={() => navigate("/")} className="cursor-pointer hover:text-gray-500 transition">Home</p>
           <p className="cursor-pointer hover:text-gray-500 transition">Shop</p>
           <p onClick={() => navigate("/new-arrivals")} className="cursor-pointer hover:text-gray-500 transition">New Arrivals</p>
-          <p className="cursor-pointer hover:text-gray-500 transition">Contact</p>
+          <p
+            onClick={() => navigate("/contact")}
+            className="cursor-pointer hover:text-gray-500 transition"
+          >
+            Contact
+          </p>
         </nav>
 
         {/* Cart */}
@@ -83,7 +88,12 @@ export default function Navbar() {
             <p onClick={() => {navigate("/"); setMenuOpen(false);}} className="cursor-pointer">Home</p>
             <p className="cursor-pointer">Shop</p>
             <p onClick={() => {navigate("/new-arrivals"); setMenuOpen(false);}} className="cursor-pointer">New Arrivals</p>
-            <p className="cursor-pointer">Contact</p>
+            <p
+              onClick={() => navigate("/contact")}
+              className="cursor-pointer hover:text-gray-500 transition"
+            >
+              Contact
+            </p>
 
           </div>
         </>

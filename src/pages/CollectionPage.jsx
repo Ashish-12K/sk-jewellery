@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products";
 
 export default function CollectionPage() {
   const { type } = useParams();
+  const navigate = useNavigate(); // ✅ added
 
-  // Decide what to show
   let filteredProducts = [];
   let title = "";
 
@@ -24,7 +24,7 @@ export default function CollectionPage() {
         {title}
       </h1>
 
-      {/* If no products */}
+      {/* No products */}
       {filteredProducts.length === 0 && (
         <p className="text-sm text-gray-500 text-center">
           No products found
@@ -34,13 +34,19 @@ export default function CollectionPage() {
       {/* Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {filteredProducts.map((item) => (
-          <div key={item.id} className="cursor-pointer">
+          <div
+            key={item.id}
+            onClick={() => navigate(`/product/${item.id}`)} // ✅ redirect
+            className="cursor-pointer group"
+          >
 
+            {/* Image */}
             <img
               src={item.image}
-              className="w-full h-[220px] object-cover"
+              className="w-full h-[220px] object-cover transition duration-300 group-hover:scale-105"
             />
 
+            {/* Info */}
             <p className="text-xs mt-2 text-center">
               {item.name}
             </p>
