@@ -1,11 +1,16 @@
 import { useLocation } from "react-router-dom";
 import { FiAlertCircle } from "react-icons/fi";
 import { useRef } from "react";
+import { useEffect } from "react";
 import * as htmlToImage from "html-to-image";
 
 export default function OrderSuccess() {
   const { state } = useLocation();
   const orderRef = useRef();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const {
     cart = [],
@@ -135,7 +140,7 @@ export default function OrderSuccess() {
       <div className="mt-6 flex items-center justify-center gap-2 text-sm text-red-500">
         <FiAlertCircle size={18} />
         <p>
-          Sending order details via WhatsApp is required to confirm your order.
+          Sending order details via WhatsApp is mandatory to confirm your order.
         </p>
       </div>
 
