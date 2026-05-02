@@ -1,7 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { FiAlertCircle } from "react-icons/fi";
-import { useRef } from "react";
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 import * as htmlToImage from "html-to-image";
 
 export default function OrderSuccess() {
@@ -19,6 +18,18 @@ export default function OrderSuccess() {
     customer = {},
   } = state || {};
 
+  // 🕒 Date & Time (NO COMMA FORMAT)
+  const orderDate = new Date();
+
+  const formattedDateTime = `${orderDate.toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  })} ${orderDate.toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+  })}`;
+
   // WhatsApp message
   let message = "Hello, I placed an order:\n\n";
 
@@ -32,6 +43,7 @@ export default function OrderSuccess() {
   message += `\n${customer.city}, ${customer.state}, ${customer.country} - ${customer.pincode}`;
   message += `\n\nTotal: ₹${total}`;
   message += `\nPayment ID: ${paymentId}`;
+  message += `\nDate & Time: ${formattedDateTime}`;
 
   const whatsappURL = `https://wa.me/919004188574?text=${encodeURIComponent(message)}`;
 
@@ -62,7 +74,7 @@ export default function OrderSuccess() {
         Confirm your order using WhatsApp.
       </p>
 
-      {/* 📦 ORDER SUMMARY (Image Area) */}
+      {/* 📦 ORDER SUMMARY */}
       <div
         ref={orderRef}
         className="border rounded-lg p-6 text-left shadow-sm bg-white"
@@ -101,11 +113,12 @@ export default function OrderSuccess() {
         <div className="text-sm space-y-1">
           <p><strong>Total:</strong> ₹{total}</p>
           <p><strong>Payment ID:</strong> {paymentId}</p>
+          <p><strong>Date & Time:</strong> {formattedDateTime}</p>
         </div>
 
         <hr className="my-4" />
 
-        {/* 🔥 WhatsApp info inside image */}
+        {/* WhatsApp Info */}
         <div className="text-sm text-center bg-gray-50 p-3 rounded">
           <p className="font-normal">
             Send this image to confirm your order
@@ -136,7 +149,7 @@ export default function OrderSuccess() {
 
       </div>
 
-      {/* ⚠️ Note */}
+      {/* Note */}
       <div className="mt-6 flex items-center justify-center gap-2 text-sm text-red-500">
         <FiAlertCircle size={18} />
         <p>
