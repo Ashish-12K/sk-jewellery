@@ -9,7 +9,7 @@ export default function NewArrivals() {
 
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-xs tracking-widest font-semibold">
+        <h2 className="text-md tracking-widest font-semibold">
           NEW ARRIVALS
         </h2>
 

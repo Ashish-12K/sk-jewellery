@@ -6,35 +6,63 @@ import { useState } from "react";
 export default function Navbar() {
   const { cart } = useCart();
   const navigate = useNavigate();
-  const location = useLocation(); // ✅ added
+  const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b">
-      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+    <header className="z-50 bg-white ">
+
+      <div className="relative max-w-7xl mx-auto px-4 h-[70px] flex items-center justify-between">
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="md:hidden z-50">
           <button onClick={() => setMenuOpen(true)}>
-            <FiMenu size={22} />
+            <FiMenu size={24} />
           </button>
         </div>
 
         {/* Logo */}
-        <h1
+        <div
           onClick={() => navigate("/")}
-          className="text-2xl font-semibold tracking-wide cursor-pointer"
+          className="
+            absolute 
+            left-1/2 md:left-4 
+            top-1/2 
+            -translate-x-1/2 md:translate-x-0 
+            -translate-y-1/2 
+            cursor-pointer 
+            z-50
+          "
         >
-          SK Jewelry
-        </h1>
+          <img
+            src="/images/elegant_logo.png"
+            alt="Elegant Jewellery By Riza"
+            className="h-14 md:h-20 w-auto object-contain"
+          />
+        </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium">
-          <p onClick={() => navigate("/")} className="cursor-pointer hover:text-gray-500 transition">Home</p>
-          <p className="cursor-pointer hover:text-gray-500 transition">Shop</p>
-          <p onClick={() => navigate("/new-arrivals")} className="cursor-pointer hover:text-gray-500 transition">New Arrivals</p>
+        <nav className="hidden md:flex gap-8 text-sm font-medium ml-52">
+          <p
+            onClick={() => navigate("/")}
+            className="cursor-pointer hover:text-gray-500 transition"
+          >
+            Home
+          </p>
+
+          <p className="cursor-pointer hover:text-gray-500 transition">
+            Shop
+          </p>
+
+          <p
+            onClick={() => navigate("/new-arrivals")}
+            className="cursor-pointer hover:text-gray-500 transition"
+          >
+            New Arrivals
+          </p>
+
           <p
             onClick={() => navigate("/contact")}
             className="cursor-pointer hover:text-gray-500 transition"
@@ -47,14 +75,14 @@ export default function Navbar() {
         <div
           onClick={() => {
             if (location.pathname === "/cart") {
-              navigate(-1); // ✅ go back if already on cart
+              navigate(-1);
             } else {
               navigate("/cart");
             }
           }}
-          className="relative cursor-pointer group"
+          className="relative cursor-pointer group ml-auto z-50"
         >
-          <FiShoppingBag size={20} />
+          <FiShoppingBag size={22} />
 
           {totalItems > 0 && (
             <span className="absolute -top-2 -right-2 bg-black text-white text-xs px-2 py-[2px] rounded-full">
@@ -65,7 +93,7 @@ export default function Navbar() {
 
       </div>
 
-      {/* 🔥 Mobile Sidebar */}
+      {/* Mobile Sidebar */}
       {menuOpen && (
         <>
           {/* Overlay */}
@@ -75,22 +103,61 @@ export default function Navbar() {
           />
 
           {/* Sidebar */}
-          <div className="fixed top-0 left-0 w-[250px] h-full bg-white z-50 p-6 flex flex-col gap-6">
+          <div className="fixed top-0 left-0 w-[260px] h-full bg-white z-50 p-6 flex flex-col gap-6">
 
             {/* Close Button */}
             <div className="flex justify-end">
               <button onClick={() => setMenuOpen(false)}>
-                <FiX size={22} />
+                <FiX size={24} />
               </button>
             </div>
 
+            {/* Mobile Logo */}
+            <div
+              onClick={() => {
+                navigate("/");
+                setMenuOpen(false);
+              }}
+              className="cursor-pointer"
+            >
+              <img
+                src="/images/elegant_logo.png"
+                alt="Elegant Jewellery By Riza"
+                className="h-14 w-auto object-contain"
+              />
+            </div>
+
             {/* Links */}
-            <p onClick={() => {navigate("/"); setMenuOpen(false);}} className="cursor-pointer">Home</p>
-            <p className="cursor-pointer">Shop</p>
-            <p onClick={() => {navigate("/new-arrivals"); setMenuOpen(false);}} className="cursor-pointer">New Arrivals</p>
             <p
-              onClick={() => navigate("/contact")}
-              className="cursor-pointer hover:text-gray-500 transition"
+              onClick={() => {
+                navigate("/");
+                setMenuOpen(false);
+              }}
+              className="cursor-pointer text-base"
+            >
+              Home
+            </p>
+
+            <p className="cursor-pointer text-base">
+              Shop
+            </p>
+
+            <p
+              onClick={() => {
+                navigate("/new-arrivals");
+                setMenuOpen(false);
+              }}
+              className="cursor-pointer text-base"
+            >
+              New Arrivals
+            </p>
+
+            <p
+              onClick={() => {
+                navigate("/contact");
+                setMenuOpen(false);
+              }}
+              className="cursor-pointer text-base"
             >
               Contact
             </p>
