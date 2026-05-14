@@ -3,8 +3,8 @@ const categories = [
   { name: "Bracelet", image: "/images/Bracelets/Bracelet2.png", slug: "bracelets" },
   // { name: "Earring", image: "/images/Earring/Earring1.jpeg", slug: "earring" },
   // { name: "Ring", image: "/images/Rings/Ring1.jpg", slug: "rings" },
-  // { name: "Anklet", image: "/images/Anklet/anklet1.jpg", slug: "anklet" },
   { name: "Bangles", image: "/images/Bangle/Bangle1.png", slug: "bangle" },
+  { name: "Watches", image: "/images/Watch/w1.png", slug: "watch" },
 ];
 import { useNavigate } from "react-router-dom";
 

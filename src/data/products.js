@@ -130,8 +130,8 @@ const products = [
   {
     id: 3,
     name: "Tulip Bracelet(Red & White Crystal)",
-    price: 99,
-    image: "/images/Bracelets/b6.png",
+    price: 350,
+    image: "/images/Bracelets/b21.jpeg",
     category: "bracelets",
     isNew: true,
     isBestSeller: true
@@ -139,8 +139,8 @@ const products = [
   {
     id: 4,
     name: "Tulip Bracelet (White Crystal)",
-    price: 199,
-    image: "/images/Bracelets/b7.png",
+    price: 350,
+    image: "/images/Bracelets/b22.jpeg",
     category: "bracelets",
     isNew: true,
     isBestSeller: true
@@ -148,36 +148,96 @@ const products = [
   {
     id: 5,
     name: "Tulip Bracelet (Green Crystal)",
-    price: 199,
-    image: "/images/Bracelets/b8.png",
+    price: 350,
+    image: "/images/Bracelets/b23.jpeg",
     category: "bracelets",
     isNew: true,
     isBestSeller: true
   },
   {
     id: 6,
-    name: "Gold Necklace",
-    price: 249,
-    image: "/images/Bracelets/b9.png",
+    name: "Tulip Bracelet",
+    price: 350,
+    image: "/images/Bracelets/b24.jpeg",
     category: "bracelets",
     isNew: true,
     isBestSeller: false
   },
   {
     id: 7,
-    name: "Gold Necklace",
-    price: 299,
-    image: "/images/Bracelets/b10.png",
+    name: "Tulip Bracelet",
+    price: 350,
+    image: "/images/Bracelets/b25.jpeg",
     category: "bracelets",
     isNew: true,
     isBestSeller: false
   },
   {
     id: 8,
-    name: "Flower Hair Band",
-    price: 99,
-    image: "/images/Bracelets/b11.png",
+    name: "Bow Bracelet (Blue)",
+    price: 350,
+    image: "/images/Bracelets/b26.png",
     category: "bracelets",
+    isNew: true,
+    isBestSeller: false
+  },
+  {
+    id: 8,
+    name: "Bow Bracelet (Red)",
+    price: 350,
+    image: "/images/Bracelets/b1.jpeg",
+    category: "bracelets",
+    isNew: true,
+    isBestSeller: false
+  },
+  
+  {
+    id: 9,
+    name: "Clove Bracelet",
+    price: 150,
+    image: "/images/Bracelets/b12.jpeg",
+    category: "bracelets",
+    isNew: true,
+    isBestSeller: false
+  },
+  
+  
+  {
+    id: 10,
+    name: "Snake Watch (Blue)",
+    price: 550,
+    image: "/images/Watch/w2.jpeg",
+    category: "watch",
+    isNew: true,
+    isBestSeller: false
+  },
+  
+  {
+    id: 11,
+    name: "Snake Watch (White)",
+    price: 550,
+    image: "/images/Watch/w3.jpeg",
+    category: "watch",
+    isNew: true,
+    isBestSeller: false
+  },
+  
+  {
+    id: 12,
+    name: "Snake Watch (Maroon)",
+    price: 550,
+    image: "/images/Watch/w4.jpeg",
+    category: "watch",
+    isNew: true,
+    isBestSeller: false
+  },
+  
+  {
+    id: 13,
+    name: "Snake Watch (Black)",
+    price: 550,
+    image: "/images/Watch/w5.jpeg",
+    category: "watch",
     isNew: true,
     isBestSeller: false
   },
