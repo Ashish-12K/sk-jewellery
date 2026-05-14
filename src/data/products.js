@@ -112,7 +112,7 @@ const products = [
   {
     id: 1,
     name: "3 color Bangle Box (8 ghungroo bangle)",
-    price: 799,
+    price: 899,
     image: "/images/Bangle/bangle2.png",
     category: "bangle",
     isNew: false,
@@ -121,7 +121,7 @@ const products = [
   {
     id: 2,
     name: "4 color Bangle Box (8 ghungroo bangle)",
-    price: 899,
+    price: 999,
     image: "/images/Bangle/bangle3.png",
     category: "bangle",
     isNew: false,
@@ -182,7 +182,16 @@ const products = [
     isBestSeller: false
   },
   {
-    id: 8,
+    id: 9,
+    name: "Bow Bracelet (Pink)",
+    price: 350,
+    image: "/images/Bracelets/b27.png",
+    category: "bracelets",
+    isNew: true,
+    isBestSeller: false
+  },
+  {
+    id: 10,
     name: "Bow Bracelet (Red)",
     price: 350,
     image: "/images/Bracelets/b1.jpeg",
@@ -192,7 +201,7 @@ const products = [
   },
   
   {
-    id: 9,
+    id: 11,
     name: "Clove Bracelet",
     price: 150,
     image: "/images/Bracelets/b12.jpeg",
@@ -203,7 +212,7 @@ const products = [
   
   
   {
-    id: 10,
+    id: 12,
     name: "Snake Watch (Blue)",
     price: 550,
     image: "/images/Watch/w2.jpeg",
@@ -213,7 +222,7 @@ const products = [
   },
   
   {
-    id: 11,
+    id: 13,
     name: "Snake Watch (White)",
     price: 550,
     image: "/images/Watch/w3.jpeg",
@@ -223,7 +232,7 @@ const products = [
   },
   
   {
-    id: 12,
+    id: 14,
     name: "Snake Watch (Maroon)",
     price: 550,
     image: "/images/Watch/w4.jpeg",
@@ -233,7 +242,7 @@ const products = [
   },
   
   {
-    id: 13,
+    id: 15,
     name: "Snake Watch (Black)",
     price: 550,
     image: "/images/Watch/w5.jpeg",
@@ -242,6 +251,25 @@ const products = [
     isBestSeller: false
   },
   
+  {
+    id: 16,
+    name: "Tulip Bracelet (Blue Crystal)",
+    price: 350,
+    image: "/images/Bracelets/b28.png",
+    category: "bracelets",
+    isNew: true,
+    isBestSeller: true
+  },
+  
+  {
+    id: 17,
+    name: "Tulip Bracelet (Red Crystal)",
+    price: 350,
+    image: "/images/Bracelets/b29.png",
+    category: "bracelets",
+    isNew: true,
+    isBestSeller: true
+  },
   
 
 ];
