@@ -63,7 +63,7 @@ export default function ProductPage() {
             <p>✨ Premium quality</p>
             <p>🚚 Delivery charges: ₹80</p>
             <p>⏱️ Delivery in 5–7 days</p>
-            <p>🔄 Easy replacement available</p>
+            <p>🎨 For more color options, contact us directly on WhatsApp.</p>
           </div>
 
           {/* Quantity */}

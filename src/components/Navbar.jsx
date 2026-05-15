@@ -44,7 +44,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium ml-52">
+        <nav className="hidden md:flex gap-8 text-sm font-medium ml-52 tracking-wide uppercase">
           <p
             onClick={() => navigate("/")}
             className="cursor-pointer hover:text-gray-500 transition"
@@ -52,8 +52,25 @@ export default function Navbar() {
             Home
           </p>
 
-          <p className="cursor-pointer hover:text-gray-500 transition">
-            Shop
+          <p
+            onClick={() => {
+              const section = document.getElementById("collections");
+
+              if (location.pathname !== "/") {
+                navigate("/");
+
+                setTimeout(() => {
+                  document
+                    .getElementById("collections")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+              } else {
+                section?.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="cursor-pointer hover:text-gray-500 transition"
+          >
+            Collections
           </p>
 
           <p
@@ -133,13 +150,31 @@ export default function Navbar() {
                 navigate("/");
                 setMenuOpen(false);
               }}
-              className="cursor-pointer text-base"
+              className="cursor-pointer uppercase tracking-wide"
             >
               Home
             </p>
 
-            <p className="cursor-pointer text-base">
-              Shop
+            <p
+              onClick={() => {
+                setMenuOpen(false);
+                const section = document.getElementById("collections");
+
+                if (location.pathname !== "/") {
+                  navigate("/");
+
+                  setTimeout(() => {
+                    document
+                      .getElementById("collections")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }, 100);
+                } else {
+                  section?.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="cursor-pointer uppercase tracking-wide hover:text-gray-500 transition"
+            >
+              Collections
             </p>
 
             <p
@@ -147,7 +182,7 @@ export default function Navbar() {
                 navigate("/new-arrivals");
                 setMenuOpen(false);
               }}
-              className="cursor-pointer text-base"
+              className="cursor-pointer uppercase tracking-wide"
             >
               New Arrivals
             </p>
@@ -157,7 +192,7 @@ export default function Navbar() {
                 navigate("/contact");
                 setMenuOpen(false);
               }}
-              className="cursor-pointer text-base"
+              className="cursor-pointer uppercase tracking-wide"
             >
               Contact
             </p>

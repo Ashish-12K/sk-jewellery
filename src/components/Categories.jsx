@@ -12,7 +12,7 @@ export default function Categories() {
   const navigate = useNavigate();
 
   return (
-    <section className="px-4 py-10">
+    <section id="collections" className="px-4 py-10">
       <h2 className="text-md text-md tracking-widest font-semibold mb-6">
         SHOP BY COLLECTIONS
       </h2>

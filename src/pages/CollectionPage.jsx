@@ -1,9 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products";
+import { useEffect } from "react";
 
 export default function CollectionPage() {
   const { type } = useParams();
   const navigate = useNavigate(); // ✅ added
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   let filteredProducts = [];
   let title = "";

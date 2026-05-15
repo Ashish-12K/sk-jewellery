@@ -45,7 +45,7 @@ export default function OrderSuccess() {
   message += `\nPayment ID: ${paymentId}`;
   message += `\nDate & Time: ${formattedDateTime}`;
 
-  const whatsappURL = `https://wa.me/919004188574?text=${encodeURIComponent(message)}`;
+  const whatsappURL = `https://wa.me/919026187747?text=${encodeURIComponent(message)}`;
 
   // 📸 Download image
   const downloadImage = async () => {
@@ -124,7 +124,7 @@ export default function OrderSuccess() {
             Send this image to confirm your order
           </p>
           <p className="text-gray-800 font-semibold">
-            WhatsApp: +91 90041 88574
+            WhatsApp: +91 90261 87747
           </p>
         </div>
 

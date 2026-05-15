@@ -1,9 +1,17 @@
 import products from "../data/products";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function NewArrivalsPage() {
 
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
+
   return (
     <div className="px-6 py-10">
       <h1 className="text-lg font-semibold mb-6">

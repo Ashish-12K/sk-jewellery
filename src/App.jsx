@@ -9,10 +9,14 @@ import CartPage from "./pages/CartPage";
 import OrderSuccess from "./pages/OrderSuccess";
 import CheckoutPage from "./pages/CheckoutPage";
 import ContactPage from "./pages/ContactPage";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PrivacyPage from "./pages/PrivacyPage";
+import AnnouncementBar from "./components/AnnouncementBar";
 
 function App() {
   return (
     <Router>
+      <AnnouncementBar />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -26,6 +30,8 @@ function App() {
         <Route path="/order-success" element={<OrderSuccess />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/privacy-policy" element={<PrivacyPage />} />
       </Routes>
     </Router>
   );

@@ -1,7 +1,7 @@
 import { FaWhatsapp } from "react-icons/fa";
 
 export default function ContactPage() {
-  const whatsappNumber = "919004188574";
+  const whatsappNumber = "9026187747";
 
   return (
     <div className="px-6 py-12 max-w-3xl mx-auto text-center">
@@ -20,12 +20,12 @@ export default function ContactPage() {
 
         <div>
           <h2 className="font-semibold">Phone</h2>
-          <p className="text-gray-600">+91 90041 88574</p>
+          <p className="text-gray-600">+91 90261 87747</p>
         </div>
 
         <div>
           <h2 className="font-semibold">Email</h2>
-          <p className="text-gray-600">support@skjewelry.com</p>
+          <p className="text-gray-600">ak0911090@gmail.com</p>
         </div>
 
       </div>
