@@ -176,7 +176,7 @@ const products = [
     id: 8,
     name: "Bow Bracelet (Blue)",
     price: 350,
-    image: "/images/Bracelets/b26.png",
+    image: "/images/Bracelets/b26.jpg",
     category: "bracelets",
     isNew: true,
     isBestSeller: false
@@ -185,7 +185,7 @@ const products = [
     id: 9,
     name: "Bow Bracelet (Pink)",
     price: 350,
-    image: "/images/Bracelets/b27.png",
+    image: "/images/Bracelets/b27.jpg",
     category: "bracelets",
     isNew: true,
     isBestSeller: false
@@ -255,7 +255,7 @@ const products = [
     id: 16,
     name: "Tulip Bracelet (Blue Crystal)",
     price: 350,
-    image: "/images/Bracelets/b28.png",
+    image: "/images/Bracelets/b28.jpg",
     category: "bracelets",
     isNew: true,
     isBestSeller: true
@@ -265,7 +265,7 @@ const products = [
     id: 17,
     name: "Tulip Bracelet (Red Crystal)",
     price: 350,
-    image: "/images/Bracelets/b29.png",
+    image: "/images/Bracelets/b29.jpg",
     category: "bracelets",
     isNew: true,
     isBestSeller: true

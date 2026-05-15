@@ -1,9 +1,15 @@
 import { useParams, useNavigate } from "react-router-dom";
 import products from "../data/products";
+import { useEffect } from "react";
 
 export default function CategoryPage() {
   const { category } = useParams();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   const filteredProducts = products.filter(
     (item) => item.category === category

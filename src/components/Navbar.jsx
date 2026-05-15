@@ -12,7 +12,7 @@ export default function Navbar() {
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <header className="z-50 bg-white ">
+    <header className="z-50 bg-white border-b border-gray-300">
 
       <div className="relative max-w-7xl mx-auto px-4 h-[70px] flex items-center justify-between">
 

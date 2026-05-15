@@ -1,9 +1,9 @@
 const categories = [
   // { name: "Necklace", image: "/images/Necklace/necklace1.jpeg", slug: "necklace" },
-  { name: "Bracelet", image: "/images/Bracelets/Bracelet2.png", slug: "bracelets" },
+  { name: "Bracelet", image: "/images/Bracelets/Bracelet2.jpg", slug: "bracelets" },
   // { name: "Earring", image: "/images/Earring/Earring1.jpeg", slug: "earring" },
   // { name: "Ring", image: "/images/Rings/Ring1.jpg", slug: "rings" },
-  { name: "Bangles", image: "/images/Bangle/Bangle1.png", slug: "bangle" },
+  { name: "Bangles", image: "/images/Bangle/Bangle1.jpg", slug: "bangle" },
   { name: "Watches", image: "/images/Watch/w1.png", slug: "watch" },
 ];
 import { useNavigate } from "react-router-dom";
