@@ -12,7 +12,7 @@ export default function TermsAndConditions() {
             Orders
           </h2>
           <p>
-            By placing an order with Florenza, you agree to provide accurate
+            By placing an order with Riza Jewellery, you agree to provide accurate
             information and complete the payment process as required.
           </p>
         </div>
