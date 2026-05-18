@@ -12,6 +12,8 @@ import ContactPage from "./pages/ContactPage";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PrivacyPage from "./pages/PrivacyPage";
 import AnnouncementBar from "./components/AnnouncementBar";
+import RefundCancellation from "./pages/RefundCancellation";
+import ShippingDelivery from "./pages/ShippingDelivery";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/privacy-policy" element={<PrivacyPage />} />
+        <Route path="/refund-cancellation-policy" element={<RefundCancellation />} />
+        <Route path="/shipping-delivery-policy" element={<ShippingDelivery />} />
       </Routes>
     </Router>
   );
