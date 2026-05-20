@@ -78,7 +78,7 @@ export default function CheckoutPage() {
       amount: finalTotal * 100,
       currency: "INR",
 
-      name: "Elegant Jewellery",
+      name: "Riza Jewellery",
       description: "Order Payment",
 
       handler: function (response) {

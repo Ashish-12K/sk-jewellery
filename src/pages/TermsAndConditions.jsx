@@ -32,7 +32,7 @@ export default function TermsAndConditions() {
             Shipping
           </h2>
           <p>
-            Orders are generally delivered within 18–21 business days depending
+            Orders are generally delivered within 7-10 business days depending
             on location and product availability.
           </p>
         </div>

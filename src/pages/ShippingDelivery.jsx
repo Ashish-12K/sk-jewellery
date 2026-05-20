@@ -64,7 +64,7 @@ const ShippingDelivery = () => {
             </h2>
 
             <p className="text-gray-600 leading-8">
-              Once dispatched, orders are generally delivered within 5-7
+              Once dispatched, orders are generally delivered within 7-10
               business days depending on your location and courier service
               availability. Delivery timelines may vary during festivals,
               holidays, or unforeseen circumstances.

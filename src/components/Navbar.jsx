@@ -84,7 +84,7 @@ export default function Navbar() {
             onClick={() => navigate("/contact")}
             className="cursor-pointer hover:text-gray-500 transition"
           >
-            Contact
+            Contact Us
           </p>
         </nav>
 
@@ -194,7 +194,7 @@ export default function Navbar() {
               }}
               className="cursor-pointer uppercase tracking-wide"
             >
-              Contact
+              Contact Us
             </p>
 
           </div>
