@@ -1,8 +1,10 @@
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CheckoutPage() {
-  const { total } = useCart();
+  const { cart, total } = useCart();
+  const navigate = useNavigate();
 
   const deliveryCharge = 80;
   const finalTotal = total + deliveryCharge;
@@ -71,7 +73,7 @@ export default function CheckoutPage() {
     return true;
   };
 
-  const openPhonePe = () => {
+  const payViaUPI = () => {
     if (!validateForm()) return;
 
     const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(
@@ -81,14 +83,16 @@ export default function CheckoutPage() {
     window.location.href = upiUrl;
   };
 
-  const openPaytm = () => {
+  const goToOrderSuccess = () => {
     if (!validateForm()) return;
 
-    const upiUrl = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(
-      merchantName
-    )}&am=${finalTotal}&cu=INR`;
-
-    window.location.href = upiUrl;
+    navigate("/order-success", {
+      state: {
+        cart,
+        total: finalTotal,
+        customer: form,
+      },
+    });
   };
 
   const inputStyle =
@@ -105,7 +109,9 @@ export default function CheckoutPage() {
           Enter your delivery details
         </p>
 
+        {/* Form */}
         <div className="space-y-4">
+
           <input
             placeholder="Full Name"
             className={inputStyle}
@@ -139,6 +145,7 @@ export default function CheckoutPage() {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
             <input
               placeholder="City"
               className={inputStyle}
@@ -154,9 +161,11 @@ export default function CheckoutPage() {
                 setForm({ ...form, pincode: e.target.value })
               }
             />
+
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
             <select
               className={inputStyle}
               onChange={(e) =>
@@ -169,10 +178,14 @@ export default function CheckoutPage() {
               </option>
 
               {states.map((state) => (
-                <option key={state} value={state}>
+                <option
+                  key={state}
+                  value={state}
+                >
                   {state}
                 </option>
               ))}
+
             </select>
 
             <select
@@ -180,13 +193,20 @@ export default function CheckoutPage() {
               value="India"
               disabled
             >
-              <option>India</option>
+              <option>
+                India
+              </option>
             </select>
+
           </div>
+
         </div>
 
+        {/* Summary */}
         <div className="mt-10 border-t border-gray-100 pt-6">
+
           <div className="space-y-3">
+
             <div className="flex justify-between text-sm text-gray-600">
               <span>Subtotal</span>
               <span>₹ {total}</span>
@@ -201,28 +221,32 @@ export default function CheckoutPage() {
               <span>Total</span>
               <span>₹ {finalTotal}</span>
             </div>
+
           </div>
 
-          <div className="mt-6 space-y-3">
-            <button
-              onClick={openPhonePe}
-              className="w-full bg-purple-600 text-white py-3 rounded-xl hover:bg-purple-700 transition text-sm font-medium"
-            >
-              Pay with PhonePe
-            </button>
+          {/* UPI Payment Button */}
+          <button
+            onClick={payViaUPI}
+            className="mt-6 w-full bg-black text-white py-3 rounded-xl hover:bg-gray-900 transition text-sm font-medium"
+          >
+            Pay via UPI
+          </button>
 
-            <button
-              onClick={openPaytm}
-              className="w-full bg-blue-500 text-white py-3 rounded-xl hover:bg-blue-600 transition text-sm font-medium"
-            >
-              Pay with Paytm
-            </button>
+          {/* Payment Completed Button */}
+          <button
+            onClick={goToOrderSuccess}
+            className="mt-3 w-full border border-black text-black py-3 rounded-xl hover:bg-black hover:text-white transition text-sm font-medium"
+          >
+            Payment Completed
+          </button>
 
-            <p className="text-xs text-gray-500 text-center">
-              After payment, please send payment screenshot on WhatsApp for order confirmation.
-            </p>
-          </div>
+          <p className="text-xs text-center text-gray-500 mt-3">
+            After completing payment through PhonePe, Paytm, Google Pay or any UPI app,
+            click "Payment Completed" to continue.
+          </p>
+
         </div>
+
       </div>
     </div>
   );
