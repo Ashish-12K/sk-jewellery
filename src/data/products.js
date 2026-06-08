@@ -140,7 +140,7 @@ const products = [
     id: 4,
     name: "Tulip Bracelet (White Crystal)",
     price: 350,
-    image: "/images/Bracelets/b22.jpeg",
+    image: "/images/Bracelets/b33.jpg",
     category: "bracelets",
     isNew: true,
     isBestSeller: true
@@ -163,15 +163,15 @@ const products = [
     isNew: true,
     isBestSeller: false
   },
-  {
-    id: 7,
-    name: "Tulip Bracelet",
-    price: 350,
-    image: "/images/Bracelets/b25.jpeg",
-    category: "bracelets",
-    isNew: true,
-    isBestSeller: false
-  },
+  // {
+  //   id: 7,
+  //   name: "Tulip Bracelet",
+  //   price: 350,
+  //   image: "/images/Bracelets/b25.jpeg",
+  //   category: "bracelets",
+  //   isNew: true,
+  //   isBestSeller: false
+  // },
   {
     id: 8,
     name: "Bow Bracelet (Blue)",
@@ -181,20 +181,20 @@ const products = [
     isNew: true,
     isBestSeller: false
   },
-  {
-    id: 9,
-    name: "Bow Bracelet (Pink)",
-    price: 350,
-    image: "/images/Bracelets/b27.jpg",
-    category: "bracelets",
-    isNew: true,
-    isBestSeller: false
-  },
+  // {
+  //   id: 9,
+  //   name: "Bow Bracelet (Pink)",
+  //   price: 350,
+  //   image: "/images/Bracelets/b27.jpg",
+  //   category: "bracelets",
+  //   isNew: true,
+  //   isBestSeller: false
+  // },
   {
     id: 10,
-    name: "Bow Bracelet (Red)",
+    name: "Tuplip Bracelet(Sky Blue)",
     price: 350,
-    image: "/images/Bracelets/b1.jpeg",
+    image: "/images/Bracelets/b1.jpg",
     category: "bracelets",
     isNew: true,
     isBestSeller: false
