@@ -129,7 +129,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Tulip Bracelet(Red & White Crystal)",
+    name: "Tulip Bracelet(Pink & Green Crystal)",
     price: 350,
     image: "/images/Bracelets/b21.jpeg",
     category: "bracelets",
@@ -156,7 +156,7 @@ const products = [
   },
   {
     id: 6,
-    name: "Tulip Bracelet",
+    name: "Tulip Bracelet(Purple White)",
     price: 350,
     image: "/images/Bracelets/b24.jpeg",
     category: "bracelets",
